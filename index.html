@@ -6,20 +6,26 @@
 		// TODO: create a handler
     window.addEventListener("load", function(){
         // TODO: register the handler
-		let form = document.querySelector("form");
-		let actions = {
-		"google": "https://www.google.com/search",
-		"duckDuckGo": "https://duckduckgo.com/",
-		"bing": "https://www.bing.com/search",
-		"ask": "https://www.ask.com/web"
-		}
 
 		form.addEventListener("submit", function(event) {
 
-			let selectedEngine = document.querySelector(input[name=engine]:checked);
+			// let engineInput = document.querySelector(input[name=engine]:checked);
+			let searchInput = document.querySelector("input[name=q]");
+			let form = document.getElementById("searchForm");
+			let actions = {
+			"google": "https://www.google.com/search",
+			"duckDuckGo": "https://duckduckgo.com/",
+			"bing": "https://www.bing.com/search",
+			"ask": "https://www.ask.com/web"
+			}
 
-			form.setAttribute(action, actions[selectedEngine.value]);
-
+			if (engineInput === "" || searchInput === "") {
+				alert("Must enter search and select engine.");
+				event.preventDefault();
+			} else {
+			form.setAttribute(action, actions[engineInput.value]);
+			}
+			
 		});
     });
 	</script>
