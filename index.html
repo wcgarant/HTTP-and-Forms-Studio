@@ -19,7 +19,7 @@
 			"ask": "https://www.ask.com/web"
 			}
 
-			if (engineInput === "" || searchInput === "") {
+			if (!engineInput || searchInput.value === "") {
 				alert("Must enter search and select engine.");
 				event.preventDefault();
 			} else {
